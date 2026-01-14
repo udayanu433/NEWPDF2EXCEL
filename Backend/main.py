@@ -15,7 +15,10 @@ app = FastAPI()
 # --- 1. CONFIGURATION ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://your-project-name.vercel.app" # Add your Vercel URL here
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["X-Processed-Data"]

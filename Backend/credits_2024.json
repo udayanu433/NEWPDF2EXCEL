@@ -47,7 +47,7 @@
         {
           "semester": 2,
           "courses": [
-             {"code": "GAMAT201", "credits": 4},
+             {"code": "GAMAT201", "credits": 3},
              {"code": "GDMAT201", "credits": 3},
             {"code": "GAPHT121", "credits": 4},
             {"code": "GXCYT122", "credits": 4},
@@ -91,7 +91,11 @@
             {"code": "UCEST206", "credits": 3},
             {"code": "UCHUT128", "credits": 1},
             {"code": "UCPWT127", "credits": 1},
-            {"code": "GZESL208", "credits": 1}
+            {"code": "GZESL208", "credits": 1},
+            {"code": "UCHWT127", "credits": 1},
+            {"code": "PCEET205", "credits": 4},
+            {"code": "GBEST213", "credits": 3}
+
           ]
         },
         {

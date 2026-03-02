@@ -1,261 +1,349 @@
-/* 1. Global Reset & Layout */
-* {
-  box-sizing: border-box;
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --card: #ffffff;
 }
 
 body {
-  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
   margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-  min-height: 100vh;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* 2. Navbar */
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: flex-end;
-  padding: 20px 50px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
+  justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  color: #555;
-}
-
-.nav-link-item {
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.nav-link-item:hover {
-  color: #ff8533;
-}
-
-.nav-btn {
-  background: #ff8533; 
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* 3. Main Hero Content */
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  padding: 20px;
-}
-
-.hero-section {
+  padding: 1rem 6%;
   background: white;
-  width: 90%;
-  max-width: 1100px;
-  height: 650px;
-  display: flex; 
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #e2e8f0;
 }
 
-/* 4. Left Panel (Form Area) */
-.left-panel {
-  flex: 1;
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.left-panel h1 {
-  font-size: 42px;
-  margin: 0;
-  color: #222;
-  font-weight: 700;
-}
-
-.subtitle {
-  color: #666;
-  font-size: 17px;
-  margin-top: 8px;
-  margin-bottom: 45px;
-}
-
-/* 5. Drop Zone */
-.drop-zone {
-  border: 2px dashed #ddd;
-  border-radius: 12px;
-  padding: 50px 20px;
-  text-align: center;
-  background: #fafafa;
-  margin-bottom: 35px;
-  transition: all 0.3s ease;
-}
-
-.drop-zone:hover {
-  border-color: #ff8533;
-  background: #fff9f5;
-}
-
-.drop-zone p {
-  font-weight: 500;
-  color: #444;
-  margin-bottom: 18px;
-}
-
-.browse-btn {
-  background: #ff8533;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
-  border: none;
-}
-
-.browse-btn:hover {
-  background: #e6762d;
-}
-
-.file-name {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #27ae60;
-  font-weight: 600;
-}
-
-/* 6. Action Section */
-.action-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.convert-icon-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.excel-preview-icon {
-  background: #21a366;
-  color: white;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo {
+  font-size: 1.5rem;
   font-weight: 800;
-  border-radius: 4px;
-  font-size: 18px;
+  color: var(--primary);
+  cursor: pointer;
 }
 
-.arrow-right {
-  font-size: 24px;
-  color: #ff8533;
-}
+.logo span { color: var(--text); }
 
-.convert-btn-text {
+.nav-links button {
   background: none;
   border: none;
-  font-size: 20px;
+  margin-left: 2rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text-muted);
   cursor: pointer;
-  padding: 0;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
+  transition: 0.2s;
+}
+.nav-links button {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
 }
 
-.convert-btn-text:hover:not(:disabled) {
-  color: #ff8533;
-  border-bottom: 2px solid #ff8533;
+.nav-links button.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 4px; }
+
+/* Hero Page Layout */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  padding: 6rem 8%;
+  align-items: center;
 }
 
-.convert-btn-text:disabled {
-  color: #ccc;
-  cursor: not-allowed;
+.badge {
+  background: #e0e7ff;
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/* 7. Footer Icons */
-.footer-icons {
-  display: flex;
-  gap: 30px;
-  margin-top: 50px;
-  font-size: 12px;
-  color: #999;
-  border-top: 1px solid #eee;
-  padding-top: 25px;
+.text-panel h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 1.5rem 0;
 }
 
-/* 8. Right Panel */
-.right-panel {
-  flex: 1.3;
-  background-color: #f4f4f4;
+.text-panel h1 span { color: var(--primary); }
+
+.text-panel p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-.right-panel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Dashboard Specific */
-.dashboard-view {
+/* Drop Zone UI */
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 1.25rem;
+  padding: 3rem;
   text-align: center;
+  background: white;
+  margin-bottom: 2rem;
+  transition: 0.3s;
 }
 
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 4px solid #ff8533;
-  margin: 20px auto;
-  display: block;
+.drop-zone.active {
+  border-color: var(--primary);
+  background: #f5f3ff;
 }
 
-.instruction-content {
-  line-height: 1.8;
-  color: #444;
-  margin-bottom: 20px;
+.upload-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Animation */
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+.file-ready strong { color: var(--primary); display: block; }
+
+/* Buttons */
+.main-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
+.main-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.secondary-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Dashboard Page UI */
+.dashboard { padding: 4rem 6%; }
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.stat-card span { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
+.stat-card strong { display: block; font-size: 2.5rem; margin-top: 0.5rem; }
+.stat-card .success { color: #10b981; }
+
+.grid-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.05);
+}
+
+.card h3 { margin-top: 0; margin-bottom: 2rem; color: #334155; }
+
+/* Assets List */
+.asset-list { list-style: none; padding: 0; }
+.asset-list li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.asset-list li .icon { font-size: 1.5rem; margin-right: 1rem; }
+.asset-list li strong { display: block; font-size: 0.95rem; }
+.asset-list li span { font-size: 0.8rem; color: var(--text-muted); }
+
+.secure-tag {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Animations & Loading */
+.fade-in { animation: fadeIn 0.5s ease-out; }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Status Messages */
-.status-box {
-  margin-top: 20px;
-  font-size: 14px;
-  padding: 12px;
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Image Panel */
+.image-panel { position: relative; }
+.image-panel img {
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+}
+
+.floating-card {
+  position: absolute;
+  top: 10%;
+  left: -20px;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 800;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+/* Add these to your existing CSS file */
+
+.active-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0; /* Added border to define the button area */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  cursor: pointer; /* Makes it feel like a button */
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.active-item:hover {
+  border-color: var(--primary);
+  background: #f5f3ff;
+  transform: translateX(5px); /* Subtle shift to the right on hover */
+}
+
+.status-badge {
+  position: absolute;
+  right: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #10b981;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.active-item .icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.error-text {
+  color: #ef4444;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.status-badge {
+  position: absolute;
+  right: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #10b981;
+  background: #dcfce7;
+  padding: 4px 10px;
   border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.active-item:hover {
+  border-color: var(--primary);
+  background: #f5f3ff;
+  transform: translateX(5px);
+}
+
+.active-item {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Confirm modal overlay */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+.confirm-box {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  max-width: 420px;
+  width: 90%;
   text-align: center;
 }
-.status-box.success { color: #155724; background: #d4edda; border: 1px solid #c3e6cb; }
-.status-box.error { color: #721c24; background: #f8d7da; border: 1px solid #f5c6cb; }
-.status-box.loading { color: #856404; background: #fff3cd; border: 1px solid #ffeeba; }
+
+/* Custom tooltip for charts */
+.custom-tooltip {
+  background: white;
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  font-size: 0.95rem;
+}
+.custom-tooltip .tooltip-marker {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 4px; /* sqricle */
+}
